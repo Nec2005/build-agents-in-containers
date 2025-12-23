@@ -3,8 +3,8 @@ kind: Secret
 metadata:
   name: pipeline-auth
 data:
-  AZP_URL: aHR0cHM6Ly9kZXYuYXp1cmUuY29tL2hvdXNzZW1kZWxsYWk= # https://dev.azure.com/houssemdellai
-  AZP_POOL: bGludXgtY29udGFpbmVycy1ha3M= # linux-containers-aks
+  AZP_URL: aHR0cHM6Ly9kZXYuYXp1cmUuY29tL2hvdXNzZW1kZWxsYWk= # https://dev.azure.com/necdemo
+  AZP_POOL: bGludXgtY29udGFpbmVycy1ha3M= # ubuntu-deployment-cluster
   AZP_TOKEN: <YOUR_PAT_TOKEN>
 ---
 apiVersion: apps/v1
@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: azdevops-agent
-        image: acrforakscluster.azurecr.io/dockeragent:ubuntu-18.04
+        image: nec2005/dockeragent:1.0.0
         env:
           - name: AZP_URL
             valueFrom:
