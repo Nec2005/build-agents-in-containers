@@ -5,7 +5,7 @@ stages:
 - stage: build
 
   pool:
-   name: ubuntu-deployment-cluster
+   name: ubuntu-agent-in-cluster
    # vmImage: ubuntu-latest
 
   jobs:

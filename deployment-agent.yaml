@@ -4,14 +4,13 @@ metadata:
   name: pipeline-auth
 data:
   AZP_URL: aHR0cHM6Ly9kZXYuYXp1cmUuY29tL25lY2RlbW8=
-  AZP_POOL: dWJ1bnR1LWRlcGxveW1lbnQtY2x1c3Rlcg==
+  AZP_POOL: dWJ1bnR1LWFnZW50LWluLWNsdXN0ZXI=
   AZP_TOKEN: TnVSVG5YS0N1TVNPR1NDNmtEUjN6d0JvV25hT2kwcWJxWHpDRG04bzFOTFFXeEozekNOS0pRUUo5OUJMQUNBQUFBQWtlNnNnQUFBU0FaRE8xVkhn
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azdevops-deployment
-  namespace: devopsagent
   labels:
     app: azdevops-agent
 spec:
@@ -26,7 +25,7 @@ spec:
     spec:
       containers:
       - name: azdevops-agent
-        image: nec2005/dockeragent:1.0.0
+        image: nec2005/dockeragent:amd64
         env:
         - name: AZP_URL
           valueFrom:
@@ -44,7 +43,7 @@ spec:
               name: pipeline-auth
               key: AZP_POOL
         - name: AZP_AGENT_NAME
-          value: "Agent Deployment - Linux"
+          value: "Agent Deployment-Linux"
         volumeMounts:
         - mountPath: /var/run/docker.sock
           name: docker-volume
