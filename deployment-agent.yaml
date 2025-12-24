@@ -42,8 +42,6 @@ spec:
             secretKeyRef:
               name: pipeline-auth
               key: AZP_POOL
-        # - name: AZP_AGENT_NAME
-        #   value: "Agent Deployment-Linux"
         volumeMounts:
         - mountPath: /var/run/docker.sock
           name: docker-volume
