@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
-ENV TARGETARCH="linux-arm64"
-# Also can be "linux-arm", "linux-x64".
+ENV TARGETARCH="linux-x64"
+# Also can be "linux-arm64", "linux-x64".
 
 RUN apt update && \
   apt upgrade -y && \
